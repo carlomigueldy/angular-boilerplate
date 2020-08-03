@@ -1,3 +1,4 @@
+import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -8,9 +9,20 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'dashboard',
+    path: '',
+    component: AppComponent,
+    children: [
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+      },
+    ],
+  },
+  {
+    path: '**',
     loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+      import('./not-found/not-found.module').then((m) => m.NotFoundModule),
   },
 ];
 
