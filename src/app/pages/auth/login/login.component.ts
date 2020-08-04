@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      email: ['admin@admin.com', [Validators.required, Validators.email]],
+      password: ['password', [Validators.required]],
     });
   }
 
@@ -35,7 +35,11 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     if (this.loginForm.valid) {
       this.router.navigate(['/app/dashboard']);
-      this.snackBar.open('You have logged in', 'Close', {
+      this.snackBar.open('You have logged in', null, {
+        duration: 2000,
+      });
+    } else {
+      this.snackBar.open('You were not able to login.', null, {
         duration: 2000,
       });
     }
