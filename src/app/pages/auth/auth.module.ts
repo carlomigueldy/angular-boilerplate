@@ -1,3 +1,4 @@
+import { MaterialModule } from './../../modules/material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -5,10 +6,10 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { MatButtonModule } from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent, ForgotPasswordComponent],
-  imports: [CommonModule, AuthRoutingModule, MatButtonModule],
+  imports: [CommonModule, AuthRoutingModule, MaterialModule, FlexLayoutModule],
 })
 export class AuthModule {}
