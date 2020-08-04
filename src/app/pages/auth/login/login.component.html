@@ -1,6 +1,100 @@
-
 <div fxLayout="row" fxLayoutAlign="space-around stretch" style="height: 100%;">
-  <div fxFlex fxLayoutAlign="center center" style="background-color: red;">1</div>
-  <div fxFlex fxLayoutAlign="center center" style="background-color: blue;">2</div>
-  <div fxFlex fxLayoutAlign="center center" style="background-color: cyan;">3</div>
+  <div
+    fxFlex.xl="40%"
+    fxFlex.lg="40%"
+    fxFlex.md="40%"
+    fxFlex.sm="0%"
+    fxFlex.xs="0%"
+    fxHide.sm
+    fxHide.xs
+    fxLayout="column"
+    fxLayoutAlign="space-between center"
+    style="background-color: #6c63ff; border-radius: 0 75px 75px 0;"
+  >
+    <div>
+      <h1 style="font-size: 52px; margin-bottom: 0; color: #fff;">Sign In</h1>
+      <h3 style="margin: 0;">AngularBoilerplate</h3>
+    </div>
+    <!-- src="/assets/svg/mobile-login.svg" -->
+    <img
+      src="/assets/icons/icon-512x512.png"
+      width="75%"
+      alt="login svg"
+      style="padding-bottom: 7rem;"
+    />
+  </div>
+  <div
+    fxFlex.xl="60%"
+    fxFlex.lg="60%"
+    fxFlex.md="60%"
+    fxFlex.sm="100%"
+    fxFlex.xs="100%"
+    fxLayout="column"
+    fxLayoutAlign="space-around center"
+  >
+    <div fxHide.xl fxHide.lg fxHide.md>
+      <h1 style="font-size: 52px; margin-bottom: 0;">Sign In</h1>
+      <h3 style="margin: 0;">AngularBoilerplate</h3>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <img
+        src="/assets/icons/icon-512x512.png"
+        height="225"
+        width="225"
+        style="margin-bottom: 3rem;"
+        alt="app logo"
+      />
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="standard" style="width: 100%;">
+          <mat-label>Email</mat-label>
+          <input
+            formControlName="email"
+            placeholder="Your email address"
+            type="email"
+            matInput
+            required
+          />
+          <mat-hint>Required</mat-hint>
+          <mat-error *ngIf="email.invalid || email.dirty || email.touched">
+            <span *ngIf="email.errors?.required">
+              Email is required.
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard" style="width: 100%;">
+          <mat-label>Password</mat-label>
+          <input
+            formControlName="password"
+            placeholder="Your password here"
+            type="password"
+            matInput
+            required
+          />
+          <mat-hint>Required</mat-hint>
+          <mat-error
+            *ngIf="password.invalid || password.dirty || password.touched"
+          >
+            <span *ngIf="password.errors?.required">
+              Password is required.
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <button
+          style="
+            margin-top: 3rem;
+            background-color: #f5f5f5;
+            width: 100%;
+            height: 3rem;
+            border-radius: 30px;
+          "
+          type="submit"
+          mat-raised-button
+        >
+          Sign In
+        </button>
+      </form>
+    </div>
+  </div>
 </div>

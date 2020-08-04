@@ -7,9 +7,10 @@ import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent, ForgotPasswordComponent],
-  imports: [CommonModule, AuthRoutingModule, MaterialModule, FlexLayoutModule],
+  imports: [CommonModule, AuthRoutingModule, MaterialModule, FlexLayoutModule, ReactiveFormsModule],
 })
 export class AuthModule {}
