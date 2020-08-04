@@ -9,11 +9,13 @@ const routes: Routes = [
   },
   {
     path: 'auth',
+    data: {state: 'auth'},
     loadChildren: () =>
       import('./pages/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'app',
+    data: {state: 'app'},
     loadChildren: () =>
       import('./pages/app/app.module').then((m) => m.AppModule),
   },

@@ -1,3 +1,4 @@
+import { DrawerService } from './../../../services/app/drawer.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public drawerService: DrawerService) { }
 
   ngOnInit(): void {
   }

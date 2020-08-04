@@ -1,5 +1,26 @@
-<mat-toolbar color="primary" [class.mat-elevation-z4]="true">
-  <span>Angular Boilerplate</span>
-</mat-toolbar>
+<mat-drawer-container
+  autosize
+  style="top: 0; bottom: 0; left: 0; right: 0; position: absolute;"
+>
+  <mat-drawer #drawer class="sidenav" [opened]="drawerService.show" mode="side">
+    <div
+      fxLayout="column"
+      fxLayoutAlign="space-between center"
+      style="background-color: #f5f5f5; height: 100%;"
+    >
+      <h2>AngularBoilerplate</h2>
+      <button
+        color="primary"
+        mat-raised-button
+        style="height: 3rem; width: 90%; border-radius: 30px; margin: 1rem;"
+        (click)="router.navigate(['/auth/login'])"
+      >
+        Sign Out
+      </button>
+    </div>
+  </mat-drawer>
 
-<router-outlet></router-outlet>
+  <div class="sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
